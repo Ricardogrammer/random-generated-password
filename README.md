@@ -4,7 +4,7 @@
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/manghidev/random-generated-password)
 ![npm](https://img.shields.io/npm/dm/random-generated-password)
 
-# Instalación
+# Installation
 ```shellscript
 npm i random-generated-password
 ```
