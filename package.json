@@ -1,6 +1,6 @@
 {
   "name": "random-generated-password",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "NPM package to generate configurable passwords",
   "main": "index.js",
