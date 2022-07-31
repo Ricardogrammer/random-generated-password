@@ -26,12 +26,22 @@ The library has 7 options to generate a password:
 - all
     - Uses all uppercase and lowercase letters of the alphabet, all numbers from 0 to 9 and all special characters
 
-# Usage example
+# Usage example with default characters
 ```javascript
 
 import { generatePassword } from 'random-generated-password';
 
 const pass = generatePassword({ size: 20, type: 'all' });
 
-console.log(pass);
+console.log(pass); // outpud: >HV_S:Cv9UBY^*PO#:k;
+```
+
+# Usage example with custom characters
+```javascript
+
+import { generatePassword } from 'random-generated-password';
+
+const pass = generatePassword({ size: 20, type: 'all', mySpecialCharacters: '&%&$_--][!}{--_$&%&' /* optional */ });
+
+console.log(pass); // outpud: ZT}hoDksb&knF%k2-4_I
 ```

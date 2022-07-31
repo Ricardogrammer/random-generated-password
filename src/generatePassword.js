@@ -8,10 +8,18 @@ const specialCharacters = '!@#$%^&*()_+~`|}{[]\:;<>?';
  * @param {json} params - The parameter object
  * @param {string} params.size - The size of the password to generate
  * @param {string} params.type - The type of password to generate (alphabet, alphabetUpper, alphabetaAll, numeric, alphanumeric, characters, all)
+ * @param {string} params.mySpecialCharacters - The custom special characters to use to generate the password
  * @returns {string} - The generated password
  */
 export const generatePassword = (params) => {
+    // * Params to use for generating the password
+    const mySpecialCharacters = params.mySpecialCharacters;
     const { size, type } = params;
+
+    // * Check if the size is not set
+    if (!size) throw new Error('The size of the password is not set');
+    // * Verify the size is mayor than 0
+    if (size < 1) throw new Error('The size of the password must be mayor than 0');
     
     // * Variables for generating the password
     let characters = '';
@@ -37,10 +45,10 @@ export const generatePassword = (params) => {
             characters = alphabet + alphabetUpper + numbers;
             break;
         case 'characters':
-            characters = specialCharacters;
+            characters = (!mySpecialCharacters) ? specialCharacters : mySpecialCharacters;
             break;
         case 'all':
-            characters = alphabet + alphabetUpper + numbers + specialCharacters;
+            characters = alphabet + alphabetUpper + numbers + ((!mySpecialCharacters) ? specialCharacters : mySpecialCharacters);
             break;
         default:
             throw new Error('Invalid type of password, please use "alphabet", "numeric", "alphanumeric" or "all"');
